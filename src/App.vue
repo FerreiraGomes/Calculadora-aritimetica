@@ -1,4 +1,34 @@
-<script setup></script>
+<script setup>
+export default {
+  data() {
+    return {
+      numero1: 0,
+      numero2: 0,
+      calculo: 'soma',
+      resultado: 0,
+      };
+    },
+  methods: {
+    calcular() {
+      const num1 = parseFloat(this.numero1);
+      const num2 = parseFloat(this.numero2);
+
+      switch (this.calcular) {
+        case 'soma':
+          this.resultado = num1 + num2;
+        case 'subtracao':
+          this.resultado = num1 - num2;
+        case 'multiplicacao':
+          this.resultado = num1 * num2;
+        case 'divisao':
+          this.resultado = num1 / num2;
+          break;
+          default:
+            this.resultado = 0;
+      }
+    }
+  }
+</script>
 
 <template>
   <div class="container">
@@ -9,22 +39,34 @@
     <form class="text-center">
       <div class="row">
         <div class="col-md-1">
-          <input type="number" class="form-control" />
+          <input
+            v-model="numero1"
+            type="number"
+            class="input-number form-control"
+          />
         </div>
         <div class="col-md-1">
-          <select class="form-control text-center">
-            <option value="adicao">+</option>
-            <option value="subitracao">-</option>
+          <select v-model="calculo" class="form-control text-center">
+            <option value="soma">+</option>
+            <option value="subtracao">-</option>
             <option value="multiplicacao">x</option>
             <option value="divisao">%</option>
           </select>
         </div>
         <div class="col-md-1">
-          <input type="number" class="form-control" />
+          <input
+            v-model="numero2"
+            type="number"
+            class="input-number form-control"
+          />
         </div>
         <div class="row">
           <div class="col-md-3 mt-3">
-            <input type="number" class="form-control" />
+            <input
+              v-model="resultado"
+              type="number"
+              class="input-number form-control"
+            />
           </div>
         </div>
       </div>
@@ -32,4 +74,11 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.input-number {
+  -moz-appearance: textfield;
+}
+</style>
