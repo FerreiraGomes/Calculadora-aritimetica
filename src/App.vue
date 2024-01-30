@@ -1,4 +1,4 @@
-<script setup>
+<script>
 export default {
   data() {
     return {
@@ -30,13 +30,14 @@ export default {
             this.resultado = 0;
       }
     }
-  }
+  },
+}
 </script>
 
 <template>
   <div class="container">
     <header class="p-5 mb-4 mt-4">
-      <h1>Calculadora Arítimetica</h1>
+      <h1>Calculadora Arítimética</h1>
       <p>Você poderá fazer várias contas utilizando essa calculadora</p>
     </header>
     <form class="text-center">
