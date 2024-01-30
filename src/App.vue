@@ -13,13 +13,16 @@ export default {
       const num1 = parseFloat(this.numero1);
       const num2 = parseFloat(this.numero2);
 
-      switch (this.calcular) {
+      switch (this.calculo) {
         case 'soma':
           this.resultado = num1 + num2;
+          break;
         case 'subtracao':
           this.resultado = num1 - num2;
+          break;
         case 'multiplicacao':
           this.resultado = num1 * num2;
+          break;
         case 'divisao':
           this.resultado = num1 / num2;
           break;
